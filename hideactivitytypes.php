@@ -67,6 +67,11 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
           ->addWhere('activity_type_id', '=', $form->getVar('_values')['value'])
           ->setCheckPermissions(FALSE)
           ->execute();
+      }
+      catch (\API_Exception $e) {
+        $error = $e->getMessage();
+      }
+      try {
         $result = \Civi\Api4\ActivityMask::create()
           ->setCheckPermissions(FALSE)
           ->addValue('hidden_from_actions', $submitted['hide_from_actions'])
@@ -80,10 +85,15 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
     }
     else {
       //If there are no configurations, just remove the rows
-      $remove = \Civi\Api4\ActivityMask::delete()
-        ->addWhere('activity_type_id', '=', $form->getVar('_values')['value'])
-        ->setCheckPermissions(FALSE)
-        ->execute();
+      try {
+        $remove = \Civi\Api4\ActivityMask::delete()
+          ->addWhere('activity_type_id', '=', $form->getVar('_values')['value'])
+          ->setCheckPermissions(FALSE)
+          ->execute();
+      }
+      catch (\API_Exception $e) {
+        $error = $e->getMessage();
+      }
     }
   }
 }
