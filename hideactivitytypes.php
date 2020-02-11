@@ -12,6 +12,14 @@ function hideactivitytypes_civicrm_config(&$config) {
   _hideactivitytypes_civix_civicrm_config($config);
 }
 
+/**
+ * Implements hook_civicrm_buildForm().
+ *
+ * Set a default value for an event price set field.
+ *
+ * @param string $formName
+ * @param CRM_Core_Form $form
+ */
 function hideactivitytypes_civicrm_buildForm($formName, &$form) {
   if ($formName == 'CRM_Admin_Form_Options' && $form->getVar('_gName') == 'activity_type') {
     //add select2 for contact types
@@ -52,6 +60,12 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
   }
 }
 
+/**
+ * Implements hook_civicrm_postProcess().
+ *
+ * @param string $formName
+ * @param CRM_Core_Form $form
+ */
 function hideactivitytypes_civicrm_postProcess($formName, $form) {
   if ($formName == 'CRM_Admin_Form_Options' && $form->getVar('_gName') == 'activity_type') {
     $submitted = $form->getVar('_submitValues');
@@ -98,6 +112,12 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
   }
 }
 
+/**
+ * Implements hook_civicrm_summaryActions().
+ *
+ * @param array $actions
+ * @param string $contactID
+ */
 function hideactivitytypes_civicrm_summaryActions(&$actions, $contactID) {
   //Find out if there are any activity masks
   $masks = \Civi\Api4\ActivityMask::get()
@@ -112,6 +132,13 @@ function hideactivitytypes_civicrm_summaryActions(&$actions, $contactID) {
   CRM_Core_Resources::singleton()->addScriptFile('com.joineryhq.hideactivitytypes', 'js/hideActions.js');
 }
 
+/**
+ * Implements hook_civicrm_tabset().
+ *
+ * @param string $tabsetName
+ * @param array $tabs
+ * @param string $context
+ */
 function hideactivitytypes_civicrm_tabset($tabsetName, &$tabs, $context) {
   if ($tabsetName == 'civicrm/contact/view') {
     //Find out if there are any masks
