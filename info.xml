@@ -20,7 +20,7 @@
   <compatibility>
     <ver>5.x</ver>
   </compatibility>
-  <comments>Developed by Eli Lisseck (lisseck@gmail.com) for Joinery and YEA.</comments>
+  <comments>Developed by Allen Shaw (allen@joineryhq.com) and Eli Lisseck (lisseck@gmail.com) for Joinery and YEA.</comments>
   <classloader>
     <psr4 prefix="Civi\" path="Civi"/>
   </classloader>
