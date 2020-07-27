@@ -1,7 +1,7 @@
 <?php
 
 require_once 'hideactivitytypes.civix.php';
-// use CRM_Hideactivitytypes_ExtensionUtil as E;
+use CRM_Hideactivitytypes_ExtensionUtil as E;
 
 /**
  * Implements hook_civicrm_config().

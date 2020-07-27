@@ -1,8 +1,6 @@
 <?php
+use CRM_Hideactivitytypes_ExtensionUtil as E;
 
-/**
- * use CRM_Hideactivitytypes_ExtensionUtil as E;
- */
 class CRM_Hideactivitytypes_BAO_ActivityMask extends CRM_Hideactivitytypes_DAO_ActivityMask {
 
   /**

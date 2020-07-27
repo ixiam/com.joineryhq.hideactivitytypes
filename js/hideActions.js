@@ -4,5 +4,5 @@ CRM.$(function($) {
     if ($.inArray(id, CRM.vars.hideActions) > -1) {
       $(this).hide();
     }
-  });;
+  });
 });
