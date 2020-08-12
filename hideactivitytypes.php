@@ -17,8 +17,6 @@ function hideactivitytypes_civicrm_config(&$config) {
  *
  * Set a default value for an event price set field.
  *
- * @param string $formName
- * @param CRM_Core_Form $form
  */
 function hideactivitytypes_civicrm_buildForm($formName, &$form) {
   if ($formName == 'CRM_Admin_Form_Options' && $form->getVar('_gName') == 'activity_type') {
@@ -63,8 +61,6 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
 /**
  * Implements hook_civicrm_postProcess().
  *
- * @param string $formName
- * @param CRM_Core_Form $form
  */
 function hideactivitytypes_civicrm_postProcess($formName, $form) {
   if ($formName == 'CRM_Admin_Form_Options' && $form->getVar('_gName') == 'activity_type') {
@@ -115,8 +111,6 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
 /**
  * Implements hook_civicrm_summaryActions().
  *
- * @param array $actions
- * @param string $contactID
  */
 function hideactivitytypes_civicrm_summaryActions(&$actions, $contactID) {
   //Find out if there are any activity masks
@@ -135,9 +129,6 @@ function hideactivitytypes_civicrm_summaryActions(&$actions, $contactID) {
 /**
  * Implements hook_civicrm_tabset().
  *
- * @param string $tabsetName
- * @param array $tabs
- * @param string $context
  */
 function hideactivitytypes_civicrm_tabset($tabsetName, &$tabs, $context) {
   if ($tabsetName == 'civicrm/contact/view') {
@@ -325,24 +316,24 @@ function hideactivitytypes_civicrm_themes(&$themes) {
  * Implements hook_civicrm_preProcess().
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_preProcess
- *
-function hideactivitytypes_civicrm_preProcess($formName, &$form) {
+ */
+// function hideactivitytypes_civicrm_preProcess($formName, &$form) {
 
-} // */
+// } // */
 
 /**
  * Implements hook_civicrm_navigationMenu().
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
- *
-function hideactivitytypes_civicrm_navigationMenu(&$menu) {
-  _hideactivitytypes_civix_insert_navigation_menu($menu, 'Mailings', array(
-    'label' => E::ts('New subliminal message'),
-    'name' => 'mailing_subliminal_message',
-    'url' => 'civicrm/mailing/subliminal',
-    'permission' => 'access CiviMail',
-    'operator' => 'OR',
-    'separator' => 0,
-  ));
-  _hideactivitytypes_civix_navigationMenu($menu);
-} // */
+ */
+// function hideactivitytypes_civicrm_navigationMenu(&$menu) {
+//   _hideactivitytypes_civix_insert_navigation_menu($menu, 'Mailings', array(
+//     'label' => E::ts('New subliminal message'),
+//     'name' => 'mailing_subliminal_message',
+//     'url' => 'civicrm/mailing/subliminal',
+//     'permission' => 'access CiviMail',
+//     'operator' => 'OR',
+//     'separator' => 0,
+//   ));
+//   _hideactivitytypes_civix_navigationMenu($menu);
+// } // */
