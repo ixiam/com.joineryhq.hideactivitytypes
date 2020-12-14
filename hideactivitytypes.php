@@ -33,13 +33,13 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
       foreach ($contactTypes as $contactType) {
         $selectArr[$contactType['id']] = $contactType['label'];
       }
-      $form->add('select', 'hidden_contact_array', ts('Hide for Contact Type(s)'), $selectArr, FALSE, 'multiple');
+      $form->add('select', 'hidden_contact_array', E::ts('Hide for Contact Type(s)'), $selectArr, FALSE, 'multiple');
       CRM_Core_Region::instance('page-body')->add(array(
         'template' => 'contactTypeHide.tpl',
       ));
     }
     //add checkbox for actions menu
-    $form->add('checkbox', 'hide_from_actions', ts('Hide from Actions Menu'));
+    $form->add('checkbox', 'hide_from_actions', E::ts('Hide from Actions Menu'));
     CRM_Core_Region::instance('page-body')->add(array(
       'template' => 'hideFromActions.tpl',
     ));
