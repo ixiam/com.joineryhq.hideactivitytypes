@@ -19,14 +19,14 @@ class CRM_Hideactivitytypes_DAO_ActivityMask extends CRM_Core_DAO {
    *
    * @var string
    */
-  static $_tableName = 'civicrm_activity_mask';
+  public static $_tableName = 'civicrm_activity_mask';
 
   /**
    * Should CiviCRM log any modifications to this table in the civicrm_log table.
    *
    * @var bool
    */
-  static $_log = TRUE;
+  public static $_log = TRUE;
 
   /**
    * Unique ActivityMask ID
@@ -45,7 +45,7 @@ class CRM_Hideactivitytypes_DAO_ActivityMask extends CRM_Core_DAO {
   /**
    * Is this Activity Type hidden from actions menu
    *
-   * @var boolean
+   * @var bool
    */
   public $hidden_from_actions;
 
