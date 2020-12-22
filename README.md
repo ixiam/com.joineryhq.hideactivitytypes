@@ -1,5 +1,5 @@
 # CiviCRM: Hide Activity Types
-## com.joinery.hideactivitytypes
+## com.joineryhq.hideactivitytypes
 
 ![Screenshot](/images/screenshot.png)
 
@@ -34,7 +34,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl com.joinery.hideactivitytypes@https://github.com/FIXME/com.joinery.hideactivitytypes/archive/master.zip
+cv dl com.joineryhq.hideactivitytypes@https://github.com/FIXME/com.joineryhq.hideactivitytypes/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -43,6 +43,6 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/FIXME/com.joinery.hideactivitytypes.git
+git clone https://github.com/FIXME/com.joineryhq.hideactivitytypes.git
 cv en hideactivitytypes
 ```

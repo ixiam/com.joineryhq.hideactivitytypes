@@ -46,7 +46,7 @@ class CRM_Hideactivitytypes_Upgrader_Base {
     if (!self::$instance) {
       // FIXME auto-generate
       self::$instance = new CRM_Hideactivitytypes_Upgrader(
-        'com.joinery.hideactivitytypes',
+        'com.joineryhq.hideactivitytypes',
         realpath(__DIR__ . '/../../../')
       );
     }

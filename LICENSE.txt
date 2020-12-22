@@ -1,4 +1,4 @@
-Package: com.joinery.hideactivitytypes
+Package: com.joineryhq.hideactivitytypes
 Copyright (C) 2020, Eli Lisseck <lisseck@gmail.com>
 Licensed under the GNU Affero Public License 3.0 (below).
 

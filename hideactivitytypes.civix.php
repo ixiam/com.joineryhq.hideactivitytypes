@@ -8,7 +8,7 @@
  */
 class CRM_Hideactivitytypes_ExtensionUtil {
   const SHORT_NAME = "hideactivitytypes";
-  const LONG_NAME = "com.joinery.hideactivitytypes";
+  const LONG_NAME = "com.joineryhq.hideactivitytypes";
   const CLASS_PREFIX = "CRM_Hideactivitytypes";
 
   /**
