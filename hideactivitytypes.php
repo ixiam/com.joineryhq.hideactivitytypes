@@ -33,13 +33,13 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
       foreach ($contactTypes as $contactType) {
         $selectArr[$contactType['id']] = $contactType['label'];
       }
-      $form->add('select', 'hidden_contact_array', E::ts('Hide for Contact Type(s)'), $selectArr, FALSE, 'multiple');
+      $form->add('select', 'hideactivitytypes_hidden_contact_array', E::ts('Hide from "New Activity" list in Activities tab for Contact Type(s)'), $selectArr, FALSE, 'multiple');
       CRM_Core_Region::instance('page-body')->add(array(
         'template' => 'contactTypeHide.tpl',
       ));
     }
     //add checkbox for actions menu
-    $form->add('checkbox', 'hide_from_actions', E::ts('Hide from Actions Menu'));
+    $form->add('checkbox', 'hideactivitytypes_hide_from_actions', E::ts('Hide from Actions Menu'));
     CRM_Core_Region::instance('page-body')->add(array(
       'template' => 'hideFromActions.tpl',
     ));
@@ -49,8 +49,8 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
       ->addWhere('activity_type_id', '=', $form->getVar('_values')['value'])
       ->execute();
     foreach ($masks as $mask) {
-      $defaults['hide_from_actions'] = $mask['hidden_from_actions'];
-      $defaults['hidden_contact_array'] = explode(',', $mask['hidden_from_contact_ids_array']);
+      $defaults['hideactivitytypes_hide_from_actions'] = $mask['hidden_from_actions'];
+      $defaults['hideactivitytypes_hidden_contact_array'] = explode(',', $mask['hidden_from_contact_ids_array']);
       $form->setDefaults($defaults);
     }
     //Use some JS to add select2 and move elements around the page
@@ -65,10 +65,10 @@ function hideactivitytypes_civicrm_buildForm($formName, &$form) {
 function hideactivitytypes_civicrm_postProcess($formName, $form) {
   if ($formName == 'CRM_Admin_Form_Options' && $form->getVar('_gName') == 'activity_type') {
     $submitted = $form->getVar('_submitValues');
-    if ($submitted['hide_from_actions'] || $submitted['hidden_contact_array']) {
+    if ($submitted['hideactivitytypes_hide_from_actions'] || $submitted['hideactivitytypes_hidden_contact_array']) {
       $contactTypes = '';
-      if (count($submitted['hidden_contact_array'] > 0)) {
-        foreach ($submitted['hidden_contact_array'] as $contactTypeId) {
+      if (count($submitted['hideactivitytypes_hidden_contact_array'] > 0)) {
+        foreach ($submitted['hideactivitytypes_hidden_contact_array'] as $contactTypeId) {
           $contactTypes .= $contactTypeId . ',';
         }
       }
@@ -84,7 +84,7 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
       try {
         $result = \Civi\Api4\ActivityMask::create()
           ->setCheckPermissions(FALSE)
-          ->addValue('hidden_from_actions', $submitted['hide_from_actions'])
+          ->addValue('hidden_from_actions', $submitted['hideactivitytypes_hide_from_actions'])
           ->addValue('hidden_from_contact_ids_array', $contactTypes)
           ->addValue('activity_type_id', $form->getVar('_values')['value'])
           ->execute();
