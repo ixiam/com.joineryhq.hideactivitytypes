@@ -150,8 +150,10 @@ function hideactivitytypes_civicrm_tabset($tabsetName, &$tabs, $context) {
       //Collect Contact Types and Subtypes
       foreach ($contacts as $contact) {
         $types[] = $contact['contact_type'];
-        foreach ($contact['contact_sub_type'] as $subtype) {
-          $types[] = $subtype;
+        if (is_array($contact['contact_sub_type'])) {
+          foreach ($contact['contact_sub_type'] as $subtype) {
+            $types[] = $subtype;
+          }
         }
       }
       //Remove any duplicates as a sanity check
