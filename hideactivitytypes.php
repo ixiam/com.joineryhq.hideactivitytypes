@@ -148,6 +148,7 @@ function hideactivitytypes_civicrm_tabset($tabsetName, &$tabs, $context) {
         ->setCheckPermissions(FALSE)
         ->execute();
       //Collect Contact Types and Subtypes
+      $types = [];
       foreach ($contacts as $contact) {
         $types[] = $contact['contact_type'];
         if (is_array($contact['contact_sub_type'])) {
