@@ -171,7 +171,7 @@ function hideactivitytypes_civicrm_tabset($tabsetName, &$tabs, $context) {
       foreach ($contactTypes as $contactType) {
         //Find out if activity masks exist for this contact type and get their type ids
         foreach ($masks as $mask) {
-          if (in_array($contactType['id'], explode(',', $mask['hidden_from_contact_ids_array']))) {
+          if (in_array($contactType['id'], explode(',', $mask['hidden_from_contact_ids_array'] ?? ''))) {
             $removeActivities[] = $mask['activity_type_id'];
           }
         }
