@@ -67,7 +67,7 @@ function hideactivitytypes_civicrm_postProcess($formName, $form) {
     $submitted = $form->getVar('_submitValues');
     if ($submitted['hideactivitytypes_hide_from_actions'] || $submitted['hideactivitytypes_hidden_contact_array']) {
       $contactTypes = '';
-      if (count($submitted['hideactivitytypes_hidden_contact_array'] > 0)) {
+      if (is_array($submitted['hideactivitytypes_hidden_contact_array']) && count($submitted['hideactivitytypes_hidden_contact_array']) > 0) {
         foreach ($submitted['hideactivitytypes_hidden_contact_array'] as $contactTypeId) {
           $contactTypes .= $contactTypeId . ',';
         }
